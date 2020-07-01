@@ -1,0 +1,96 @@
+{
+    "nav": [
+        {
+            "name": "开发指南",
+            "children": [
+                {
+                    "name": "site-index",
+                    "path": "/"
+                },
+                {
+                    "name": "introduce",
+                    "path": "/introduce",
+                    "desc": "介绍"
+                },
+                {
+                    "url": "http://172.16.0.101:3000/hepeng/web-components/src/master/CHANGELOG.md",
+                    "desc": "更新日志"
+                },
+                {
+                    "name": "start",
+                    "path": "/start",
+                    "desc": "快速上手"
+                },
+                {
+                    "name": "contribute",
+                    "path": "/contribute",
+                    "desc": "开发指南"
+                }
+            ]
+        },
+        {
+            "name": "组件",
+            "groups": [
+                {
+                    "groupName": "base",
+                    "list": [
+                        {
+                            "name": "pagination",
+                            "path": "/pagination",
+                            "desc": "Pagination 分页"
+                        },
+                        {
+                            "name": "search",
+                            "path": "/search",
+                            "desc": "Search 搜索框"
+                        },
+                        {
+                            "name": "batch-search",
+                            "path": "/batch-search",
+                            "desc": "BatchSeact 批量搜索"
+                        },
+                        {
+                            "name": "batch-increase",
+                            "path": "/batch-increase",
+                            "desc": "BatchIncrease 批量添加"
+                        },
+                        {
+                            "name": "org-tree",
+                            "path": "/org-tree",
+                            "desc": "OrgTree 组织树"
+                        },
+                        {
+                            "name": "dialog",
+                            "path": "/dialog",
+                            "desc": "Dialog 弹出框"
+                        },
+                        {
+                            "name": "expandable-input",
+                            "path": "/expandable-input",
+                            "desc": "ExpandableInput 可展开输入框"
+                        },
+                        {
+                            "name": "form",
+                            "path": "/form",
+                            "desc": "Form 表单"
+                        },
+                        {
+                            "name": "table",
+                            "path": "/table",
+                            "desc": "Table 表格"
+                        },
+                        {
+                            "name": "pure-table",
+                            "path": "/pure-table",
+                            "desc": "Table 表格2"
+                        }
+                    ]
+                },
+                {
+                    "groupName": "business",
+                    "list": []
+                }
+            ]
+        }
+    ]
+}
