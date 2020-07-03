@@ -139,7 +139,7 @@
 
 <script>
 import JmTableExpand from './render.js';
-import JmDialog from '../dialog';
+import JmDialog from '~/dialog';
 
 export default {
     name: 'JmTable',

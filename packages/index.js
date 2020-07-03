@@ -1,7 +1,7 @@
-import Pagination from './base/pagination/index.js';
-import Table from './base/table/index.js';
-import Dialog from './base/dialog/index.js';
-import Form from './base/form/index.js';
+import Pagination from './pagination';
+import Table from './table';
+import Dialog from './dialog';
+import Form from './form';
 
 const components = [
     Pagination,
