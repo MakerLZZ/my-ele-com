@@ -1,28 +1,41 @@
 {
-  "name": "my-ele-com",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
-  },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "element-ui": "^2.13.2",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-router": "~4.4.0",
-    "@vue/cli-plugin-vuex": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
-    "highlight.js": "^10.1.1",
-    "markdown-it-container": "^3.0.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.2",
-    "vue-markdown-loader": "^2.4.1",
-    "vue-template-compiler": "^2.6.11"
-  }
+    "name": "my-ele-com",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lib": "vue-cli-service build --target lib --dest lib packages/index.js",
+        "component": "npx webpack --progress --hide-modules --config build/webpack.component.js",
+        "build:lib": "npm run lib && npm run component",
+        "publish:major": "npm run build:lib && npm version major && npm publish",
+        "publish:minor": "npm run build:lib && npm version minor && npm publish",
+        "publish:patch": "npm run build:lib && npm version patch && npm publish",
+        "pub": "node build/publish.js"
+    },
+    "dependencies": {
+        "core-js": "^3.6.5",
+        "element-ui": "^2.13.2",
+        "vue": "^2.6.11",
+        "vue-router": "^3.2.0",
+        "vuex": "^3.4.0"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "~4.4.0",
+        "@vue/cli-plugin-router": "~4.4.0",
+        "@vue/cli-plugin-vuex": "~4.4.0",
+        "@vue/cli-service": "~4.4.0",
+        "chalk": "^4.1.0",
+        "highlight.js": "^10.1.1",
+        "inquirer": "^7.3.0",
+        "markdown-it-container": "^3.0.0",
+        "node-sass": "^4.12.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "ora": "^4.0.4",
+        "sass-loader": "^8.0.2",
+        "shelljs": "^0.8.4",
+        "vue-markdown-loader": "^2.4.1",
+        "vue-template-compiler": "^2.6.11",
+        "webpack-cli": "^3.3.12"
+    }
 }
