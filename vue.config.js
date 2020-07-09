@@ -6,6 +6,9 @@ const markdownRender = require('markdown-it')();
 // };
 
 module.exports = {
+    devServer: {
+        port: 4872
+    },
     // 修改 pages 入口
     pages: {
         index: {
