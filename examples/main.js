@@ -8,7 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 import exampleBlock from './components/code-block.vue';
 
-import JimiUI from '~';
+import JimiUI from '../packages';
 
 Vue.config.productionTip = false;
 
