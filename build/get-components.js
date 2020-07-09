@@ -16,7 +16,7 @@ module.exports = function () {
         .reduce((acc, dir) => {
             const pkgs = fs.readdirSync(path.resolve(__dirname, `../packages/${dir}`));
 
-            pkgs.forEach(pkg => acc[pkg] = `./packages/${dir}/${pkg}/index.js`);
+            pkgs.forEach(pkg => acc[pkg] = `./packages/${dir}/index.js`);
 
             return acc;
         }, {});
