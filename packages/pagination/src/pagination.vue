@@ -1,8 +1,5 @@
 <template>
-    <div
-        class="jimi-pagination"
-        data-automation="jimi-pagination"
-    >
+    <div class="base-pagination">
         <div
             class="mini-total"
             v-if="mini"
@@ -27,7 +24,7 @@
 
 <script>
 export default {
-    name: 'JmPagination',
+    name: 'BasePagination',
     props: {
         total: {
             type: Number,
@@ -94,8 +91,6 @@ export default {
     methods: {
         /**
          * 处理切换每页条数
-         * @author lzz
-         * @version jimi-ui 0.0.1
          * @param {Number} val 每页条数
          */
         handleSizeChange(val) {
@@ -103,8 +98,6 @@ export default {
         },
         /**
          * 处理切换分页
-         * @author lzz
-         * @version jimi-ui 0.0.1
          * @param {Number} val 页码
          */
         handleCurrentChange(val) {
@@ -116,7 +109,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.jimi-pagination {
+.base-pagination {
     display: flex;
     justify-content: flex-end;
     .mini-total {

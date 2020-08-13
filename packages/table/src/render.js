@@ -1,5 +1,5 @@
 export default {
-    name: 'JmTableExpand',
+    name: 'BaseTableExpand',
     functional: true,
     props: {
         row: Object, // 行数据

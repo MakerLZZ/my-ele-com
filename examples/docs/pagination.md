@@ -10,7 +10,7 @@
 
 :::demo
 ```html
-<jm-pagination :total="50" :page-size="20"></jm-pagination>
+<base-pagination :total="50" :page-size="20"></base-pagination>
 ```
 :::
 
@@ -19,7 +19,7 @@ mini模式。
 :::demo
 
 ```html
-<jm-pagination mini :total="10" :page-size="5"></jm-pagination>
+<base-pagination mini :total="10" :page-size="5"></base-pagination>
 ```
 :::
 

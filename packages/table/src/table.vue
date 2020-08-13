@@ -1,6 +1,6 @@
 <template>
     <el-table
-        ref="jimi-table"
+        ref="base-table"
         :class="config.tableClass || ''"
         :data="data"
         v-loading="config.loading"
@@ -14,7 +14,6 @@
         :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
         @current-change="handleCurrentChange"
         @selection-change="handleSelectChange"
-        data-automation="jimi-table"
     >
         <!-- 操作列 -->
         <el-table-column
@@ -62,7 +61,7 @@
                 show-overflow-tooltip
             >
                 <template slot-scope="scope">
-                    <jm-table-expand
+                    <base-table-expand
                         :render="scope.row[item.prop]"
                         :row="scope.row"
                         :index="key"
@@ -93,7 +92,7 @@
                     @click="isShowSelectColumnDialog = true"
                 ></i>
                 <!-- 动态修改表头弹框 -->
-                <jm-dialog
+                <base-dialog
                     :visible.sync="isShowSelectColumnDialog"
                     :title="config.dialogTitle || '设置显示字段'"
                 >
@@ -117,7 +116,7 @@
                             @click="handleSetTableHead"
                         >{{config.dialogConfirmText || '确定'}}</el-button>
                     </template>
-                </jm-dialog>
+                </base-dialog>
             </template>
             <template slot-scope="scope">
                 <el-button
@@ -134,18 +133,15 @@
     </el-table>
 </template>
 
-<style lang="scss" scoped>
-</style>
-
 <script>
-import JmTableExpand from './render.js';
-import JmDialog from '~/dialog';
+import BaseTableExpand from './render.js';
+import BaseDialog from '~/dialog';
 
 export default {
-    name: 'JmTable',
+    name: 'BaseTable',
     components: {
-        JmTableExpand, // 自定义列
-        JmDialog
+        BaseTableExpand, // 自定义列
+        BaseDialog
     },
     props: {
         /* 表格数据 */
@@ -238,14 +234,12 @@ export default {
     },
     updated() {
         /* 解决表头显示隐藏重绘错位问题 */
-        this.$refs['jimi-table'].doLayout();
+        this.$refs['base-table'].doLayout();
         this.config.loading = false;
     },
     methods: {
         /**
          * 处理当前行变化事件
-         * @author lzz
-         * @version jimi-ui 0.0.1
          * @param {Number} val 点击当前行的index
          */
         handleCurrentChange(val) {
@@ -254,8 +248,6 @@ export default {
         },
         /**
          * 处理选项变化
-         * @author lzz
-         * @version jimi-ui 0.0.1
          * @param {Number} val 选项
          */
         handleSelectChange(val) {
@@ -263,8 +255,6 @@ export default {
         },
         /**
          * 获取行下标
-         * @author lzz
-         * @version jimi-ui 0.0.1
          * @param {Number} index 当前下标
          */
         getIndex(index) {
@@ -272,8 +262,6 @@ export default {
         },
         /**
          * 处理格式化
-         * @author lzz
-         * @version jimi-ui 0.0.1
          * @param {Object} row 行数据
          * @param {Object} column 列数据
          * @param {Object} cellValue 元素值
@@ -287,8 +275,6 @@ export default {
         },
         /**
          * 处理设置表头
-         * @author lzz
-         * @version jimi-ui 0.0.1
          */
         handleSetTableHead() {
             this.tableHeadNow = this.tableHeadBox.filter(item => this.newCheckList.indexOf(item.label) >= 0);
@@ -298,8 +284,6 @@ export default {
         },
         /**
          * 验证按钮
-         * @author lzz
-         * @version jimi-ui 0.0.1
          * @param {String} permissionStr 需要校验的按钮权限
          * @param {String} needValidAttr 需要校验的自定义权限
          * @param {Object} row 行对象
@@ -322,8 +306,6 @@ export default {
         },
         /**
          * 处理操作
-         * @author lzz
-         * @version jimi-ui 0.0.1
          * @param {Object} row 行数据
          * @param {Number} funcId 方法id
          */
@@ -334,3 +316,6 @@ export default {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+</style>

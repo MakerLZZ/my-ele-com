@@ -1,14 +1,11 @@
-<span></span
-
 ## Form 表单组件
-
 
 <br />
 
 ### 基础用法
 :::demo 同时展示了其他用法
 ```html
-<jm-form
+<base-form
     :model="form"
     :config="config"
     inline
@@ -16,7 +13,7 @@
     label-width="100px"
     @btnFn="handleBtnFn"
 >
-</jm-form>
+</base-form>
 
 <script>
 export default {

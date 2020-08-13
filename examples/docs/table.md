@@ -8,7 +8,7 @@
 ### 基础用法
 :::demo
 ```html
-<jm-table
+<base-table
     :table-data="data"
     :table-config="config"
 />

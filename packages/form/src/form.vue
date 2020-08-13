@@ -1,8 +1,5 @@
 <template>
-    <div
-        class="jimi-form"
-        data-automation="jimi-form"
-    >
+    <div class="base-form">
         <el-form
             :ref="refName"
             :model="formModelBox"
@@ -158,7 +155,7 @@
 
 <script>
 export default {
-    name: 'JmForm',
+    name: 'BaseForm',
     props: {
         refName: {
             type: String,
@@ -216,8 +213,6 @@ export default {
     methods: {
         /**
          * 处理单选改变
-         * @author lzz
-         * @version jimi-ui 0.0.1
          * @param {String} func 回调方法名称
          * @param {Number} newVal 改变的值
          */
@@ -226,8 +221,6 @@ export default {
         },
         /**
          * 提交表单
-         * @author lzz
-         * @version jimi-ui 0.0.1
          */
         submitForm() {
             let validate = false;
@@ -240,8 +233,6 @@ export default {
         },
         /**
          * 重置表单
-         * @author lzz
-         * @version jimi-ui 0.0.1
          */
         resetForm() {
             let ref = this.refName;
@@ -250,8 +241,6 @@ export default {
         },
         /**
          * 获取表单字段属性值
-         * @author lzz
-         * @version jimi-ui 0.0.1
          */
         getFormModel() {
             this.$emit('get-form-model', this.formModelBox);
@@ -261,7 +250,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.jm-form {
+.base-form {
     .el-select {
         width: 100%;
     }

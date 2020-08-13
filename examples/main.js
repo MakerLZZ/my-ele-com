@@ -8,15 +8,17 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 import exampleBlock from './components/code-block.vue';
 
-import JimiUI from '../packages';
+import Component from '../packages';
 
 Vue.config.productionTip = false;
 
 Vue.component('code-block', exampleBlock);
 Vue.use(ElementUI);
-Vue.use(JimiUI);
+Vue.use(Component);
 
-Vue.prototype.$ELEMENT = {size: 'small'};
+Vue.prototype.$ELEMENT = {
+    size: 'mini'
+};
 
 new Vue({
     router,
