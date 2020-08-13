@@ -1,5 +1,3 @@
-<span></span>
-
 ## Dialog 弹出框
 
 <br />
@@ -9,10 +7,14 @@
 ```html
 <el-button type="primary" @click="visible = true">显示</el-button>
 
-<jm-dialog
+<base-dialog
     :visible.sync="visible"
+    title="test"
+    :on-click-confim-btn="onClickConfimBtn"
 >
-</jm-dialog>
+    <div slot="body">123</div>
+    <!-- <div slot="footer">xxx</div> -->
+</base-dialog>
 
 <script>
 export default {
@@ -20,6 +22,11 @@ export default {
         return {
             visible: false
         };
+    },
+    methods: {
+        onClickConfimBtn() {
+            this.visible = false;
+        }
     }
 };
 </script>
@@ -30,30 +37,40 @@ export default {
 
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
-|---------- |-------- |---------- |-------------  |-------- |
-| custom-class | 自定义弹窗样式 | String | — | - |
-| visible | 是否显示弹窗,支持sync | Boolean | — | false |
-| title | 弹窗标题 | String | — | 请传入需要显示的标题 |
-| top | Dialog CSS 中的 margin-top 值 | string | - | 15vh |
-| width | 弹窗宽度 | string | - | 500px |
-| content | 弹窗内容 | String | - | 请传入需要显示的内容 |
-| show-close | 是否显示关闭按钮 | Boolean | - | true |
-| destroy-on-close | 关闭弹窗是否清除dom元素 | Boolean | - | false |
-| close-on-click-modal | 点击旁边是否关闭弹窗 | Boolean | - | false |
+|---------- |-------- |---------- |------------- |-------- |
+| visible | 是否显示 Dialog，支持 .sync 修饰符 | boolean | — | false |
+| title | Dialog 的标题 | string | — | — |
+| width | Dialog 的宽度 | string | — | 500px |
+| fullscreen | 是否为全屏 Dialog | boolean | — | false |
+| top | Dialog CSS 中的 margin-top 值 | string | — | 15vh |
+| modal | 是否需要遮罩层 | boolean | — | true |
+| modal-append-to-body | 遮罩层是否插入至 body 元素上，若为 false，则遮罩层会插入至 Dialog 的父元素上 | boolean | — | true |
+| append-to-body | Dialog 自身是否插入至 body 元素上。嵌套的 Dialog 必须指定该属性并赋值为 true | boolean | — | false |
+| lock-scroll | 是否在 Dialog 出现时将 body 滚动锁定 | boolean | — | true |
+| custom-class | Dialog 的自定义类名 | string | — | — |
+| close-on-click-modal | 是否可以通过点击 modal 关闭 Dialog | boolean | — | true |
+| close-on-press-escape | 是否可以通过按下 ESC 关闭 Dialog | boolean | — | true |
+| show-close | 是否显示关闭按钮 | boolean | — | true |
+| before-close | 关闭前的回调，会暂停 Dialog 的关闭 | function(done)，done 用于关闭 Dialog | — | — |
+| center | 是否对头部和底部采用居中布局 | boolean | — | false |
+| destroy-on-close | 关闭时销毁 Dialog 中的元素 | boolean | — | false |
+| on-click-confim-btn | 不传入底部显示确定点击事件的回调 | function | — | — |
 
 <br />
 
 ### Slot
 | name | 说明 |
 | ---- | ---- |
+| — | Dialog 的内容 |
 | body | Dialog 的内容 |
 | footer | Dialog 按钮操作区的内容 |
 
 <br />
 
 ### Events
-| 方法名 | 说明 | 参数 |
+| 事件名称 | 说明 | 回调参数 |
 | ------ | ------- | ------- |
-| opened | Dialog 打开动画结束时的回调 |  |
-| close | Dialog 关闭 |  |
-| closed | Dialog 关闭动画结束时的回调 |  |
+| open | Dialog 打开的回调 | — |
+| opened | Dialog 打开动画结束时的回调 | — |
+| close | Dialog 关闭的回调 | — |
+| closed | Dialog 关闭动画结束时的回调 | — |
