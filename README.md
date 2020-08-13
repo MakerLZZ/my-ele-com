@@ -1,25 +1,16 @@
-# my-ele-com
-饿了么UI组件扩展库
+# MY-ELE-COM
+无限的```Element```组件
 
-## npm 安装包
-highlight.js 代码块高亮
+## ```NPM``` 安装包说明
 
-使用markdown-it将Markdown文件转换为Vue组件
+### 开发环境
 
-markdown-it-container
-vue-markdown-loader
-
-命令行相关
-
-inquirer A collection of common interactive command line user interfaces.
-
-chalk Terminal string styling done right.
-
-shelljs ShellJS is a portable (Windows/Linux/OS X) implementation of Unix shell commands on top of the Node.js API.
-
-ora Elegant terminal spinner.
-
-webpack 相关
-
-optimize-css-assets-webpack-plugin
-webpack-cli
+- markdown 代码块高亮 # highlight
+- markdown 解析器 # markdown-it-container
+- markdown 转vue组件 # vue-markdown-loader
+- 终端命令 命令行集合 # inquirer
+- 终端命令 行字符样式库 # chalk
+- 终端命令 支持shell # shelljs
+- 终端命令 转换器 # ora
+- webpack # optimize-css-assets-webpack-plugin
+- webpack # webpack-cli
