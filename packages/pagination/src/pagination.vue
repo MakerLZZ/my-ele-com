@@ -1,3 +1,10 @@
+<!--
+ * @Author: lizhenzhen
+ * @Date: 2020-06-30 17:13:55
+ * @LastEditors: lizhenzhen
+ * @LastEditTime: 2020-10-31 16:13:00
+ * @FilePath: \my-ele-com\packages\pagination\src\pagination.vue
+-->
 <template>
     <div class="base-pagination">
         <div
@@ -7,51 +14,23 @@
             {{current}} / {{totalPage}}
         </div>
         <el-pagination
-            :hide-on-single-page="value"
-            :total="total"
-            :page-size="pageSize"
-            :page-sizes="pageSizes"
-            :current-page="current"
-            :pager-count="pagerCount"
+            v-bind="$props"
+            v-on="$listeners"
             :layout="layoutBtns"
-            background
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
+            @current-change="test"
         >
         </el-pagination>
     </div>
 </template>
 
 <script>
+import {Pagination} from 'element-ui';
+
 export default {
+    // inheritAttrs: false,
     name: 'BasePagination',
     props: {
-        total: {
-            type: Number,
-            default: 0
-        },
-        pageSize: {
-            type: Number,
-            default: 20
-        },
-        pageSizes: {
-            type: Array,
-            default: function () {
-                return [20, 50, 100];
-            }
-        },
-        currentPage: {
-            type: Number,
-            default: 1
-        },
-        pagerCount: {
-            type: Number,
-            default: 7
-        },
-        layout: {
-            type: String,
-            default: 'prev, pager, next, sizes'
-        },
+        ...Pagination.props,
         mini: {
             type: Boolean,
             default: false
@@ -63,9 +42,6 @@ export default {
         };
     },
     computed: {
-        value() {
-            return this.total <= 0;
-        },
         totalPage() {
             let remainder = this.total % this.pageSize;
             let quotient = this.total / this.pageSize;
@@ -83,24 +59,8 @@ export default {
             }
         }
     },
-    watch: {
-        currentPage(val) {
-            this.current = val;
-        }
-    },
     methods: {
-        /**
-         * 处理切换每页条数
-         * @param {Number} val 每页条数
-         */
-        handleSizeChange(val) {
-            this.$emit('size-change', val);
-        },
-        /**
-         * 处理切换分页
-         * @param {Number} val 页码
-         */
-        handleCurrentChange(val) {
+        test(val) {
             this.current = val;
             this.$emit('current-change', val);
         }
@@ -111,7 +71,6 @@ export default {
 <style lang="scss" scoped>
 .base-pagination {
     display: flex;
-    justify-content: flex-end;
     .mini-total {
         font-size: 12px;
         line-height: 32px;
